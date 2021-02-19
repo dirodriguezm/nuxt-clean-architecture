@@ -1,15 +1,15 @@
 import { cid, container, mockTransient, resetContainer } from "inversify-props"
-import { ITaskRepository } from "../../domain"
-import { mockTaskData } from '../../domain/__tests__/Task.mock'
-import { MockTaskService } from "../../infrastructure/__tests__/TaskService.mock"
-
-import Vuex from 'vuex'
 import { createLocalVue } from '@vue/test-utils'
 import { containerBuilder } from "@@/src/ui/plugins/inversify"
 import { TestActions } from "@@/src/app/shared/http/HttpService.mock"
 import { IStorage } from "@@/src/app/shared/storage/Storage"
 import { HttpError } from "@@/src/app/shared/http"
 import { ParseError } from "@@/src/app/shared/error/ParseError"
+import Vuex from 'vuex'
+import { ITaskRepository } from "../../domain"
+import { MockTaskService } from "../../infrastructure/__tests__/TaskService.mock"
+import { mockTaskData } from "../../domain/__tests__/Task.mock"
+
 const Vue = createLocalVue()
 Vue.use(Vuex)
 

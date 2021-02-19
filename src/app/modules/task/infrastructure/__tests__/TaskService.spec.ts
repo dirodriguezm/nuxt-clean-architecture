@@ -1,7 +1,7 @@
+import { cid, container, mockTransient, resetContainer } from "inversify-props"
+import { containerBuilder } from "@@/src/ui/plugins/inversify"
 import { IAxiosCreator } from "@@/src/app/shared/http"
 import { MockAxiosCreator, TestActions } from "@@/src/app/shared/http/HttpService.mock"
-import { containerBuilder } from "@@/src/ui/plugins/inversify"
-import { cid, container, mockTransient, resetContainer } from "inversify-props"
 import { ITaskRepository } from "../../domain"
 
 beforeEach(() => {
