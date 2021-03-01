@@ -26,19 +26,18 @@ import { ParseError } from '@@/src/app/shared/error/ParseError'
   components: { TaskCard },
 })
 export default class Home extends Vue {
-  @inject() storage!: Storage
-  private store = this.storage.getStores().taskStore
+  @inject() private storage!: Storage
 
   async mounted() {
-    await this.store.fetchTasks()
+    await this.storage.getStores().taskStore.fetchTasks()
   }
 
   get tasks() {
-    return this.store.taskList
+    return this.storage.getStores().taskStore.taskList
   }
 
   get serverError() {
-    const error = this.store.error
+    const error = this.storage.getStores().taskStore.error
     if (!error) return null
     if (isHttpError(error)) {
       if (error.isServerError()) return error.message
@@ -47,7 +46,7 @@ export default class Home extends Vue {
   }
 
   get clientError() {
-    const error = this.store.error
+    const error = this.storage.getStores().taskStore.error
     if (!error) return null
     if (isHttpError(error)) {
       if (error.isClientError()) return error.message
@@ -56,7 +55,7 @@ export default class Home extends Vue {
   }
 
   get parseError() {
-    const error = this.store.error
+    const error = this.storage.getStores().taskStore.error
     if (!error) return null
     if (isHttpError(error)) return null
     if (error instanceof ParseError) {

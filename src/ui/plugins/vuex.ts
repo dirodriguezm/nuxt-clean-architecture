@@ -13,5 +13,3 @@ declare module 'vue/types/vue' {
 }
 
 Vue.prototype.$store = storeCreator.makeStore()
-
-console.log('VUEX')
